@@ -1,0 +1,52 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class UpdateEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+       public UpdateEmployee() {
+        super();
+     
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+        request.getRequestDispatcher("/view/update-Employee.jsp").forward(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Retrieve form data
+        String employeeId = request.getParameter("id");
+        String employeeName = request.getParameter("name");
+        String employeeEmail = request.getParameter("email");
+        String employeePosition = request.getParameter("position");
+
+        // Process the data as needed (e.g., update database, log changes, etc.)
+        // For demonstration, let's just log the data to the console
+        System.out.println("Updating Employee:");
+        System.out.println("ID: " + employeeId);
+        System.out.println("Name: " + employeeName);
+        System.out.println("Email: " + employeeEmail);
+        System.out.println("Position: " + employeePosition);
+
+        // Forward to a success page with the updated data
+        request.setAttribute("id", employeeId);
+        request.setAttribute("name", employeeName);
+        request.setAttribute("email", employeeEmail);
+        request.setAttribute("position", employeePosition);
+        
+        response.sendRedirect(request.getContextPath() + "/view/success.jsp");
+		
+	}
+	
+}

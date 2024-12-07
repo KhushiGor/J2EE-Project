@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+
+  <artifactId>Human_resource_management_system</artifactId>
+
+  <packaging>war</packaging>
+
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>Human_resource_management_system Maven Webapp</name>
+
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+
+ 
+
+    <!-- Hibernate Core -->
+
+    <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.6.10.Final</version> <!-- Use the version appropriate for your setup -->
+</dependency>
+
+    <!-- JDBC Driver for your database (e.g., MySQL) -->
+
+    <dependency>
+
+        <groupId>mysql</groupId>
+
+        <artifactId>mysql-connector-java</artifactId>
+
+        <version>8.0.27</version>
+
+    </dependency>
+
+    <!-- Jakarta Persistence API -->
+
+    <dependency>
+
+        <groupId>jakarta.persistence</groupId>
+
+        <artifactId>jakarta.persistence-api</artifactId>
+
+        <version>3.1.0</version>
+
+    </dependency>  
+
+  
+
+  
+
+  
+
+  
+
+    <!-- Servlet API for Jakarta EE (use either jakarta or javax, but not both) -->
+
+    <dependency>
+
+        <groupId>jakarta.servlet</groupId>
+
+        <artifactId>jakarta.servlet-api</artifactId>
+
+        <version>5.0.0</version>
+
+        <scope>provided</scope>
+
+    </dependency>
+
+
+
+    <!-- JSTL for Servlet JSP -->
+
+    <dependency>
+
+        <groupId>jakarta.servlet.jsp</groupId>
+
+        <artifactId>jakarta.servlet.jsp-api</artifactId>
+
+        <version>3.1.0</version>
+
+        <scope>provided</scope>
+
+    </dependency>
+
+
+
+    <!-- Hibernate Core (Choose a single version of Hibernate) -->
+
+    <dependency>
+
+        <groupId>org.hibernate</groupId>
+
+        <artifactId>hibernate-core</artifactId>
+
+        <version>6.6.3.Final</version> <!-- or the latest version you prefer -->
+
+    </dependency>
+
+<dependency>
+
+    <groupId>javax.servlet</groupId>
+
+    <artifactId>javax.servlet-api</artifactId>
+
+    <version>4.0.1</version>
+
+    <scope>provided</scope>
+
+</dependency>
+
+   
+
+    <!-- SLF4J for Logging -->
+
+    <dependency>
+
+        <groupId>org.slf4j</groupId>
+
+        <artifactId>slf4j-api</artifactId>
+
+        <version>2.0.9</version>
+
+    </dependency>
+
+    <dependency>
+
+        <groupId>org.slf4j</groupId>
+
+        <artifactId>slf4j-simple</artifactId>
+
+        <version>2.0.9</version>
+
+    </dependency>
+
+
+
+    <!-- JUnit (Test dependencies) -->
+
+    <dependency>
+
+        <groupId>org.junit.jupiter</groupId>
+
+        <artifactId>junit-jupiter-api</artifactId>
+
+        <version>5.8.2</version>
+
+        <scope>test</scope>
+
+    </dependency>
+
+    <dependency>
+
+        <groupId>org.junit.jupiter</groupId>
+
+        <artifactId>junit-jupiter-engine</artifactId>
+
+        <version>5.8.2</version>
+
+        <scope>test</scope>
+
+    </dependency>
+
+
+
+  </dependencies>
+
+   <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>17</source>  <!-- Set Java version here -->
+                    <target>17</target>  <!-- Set Java version here -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

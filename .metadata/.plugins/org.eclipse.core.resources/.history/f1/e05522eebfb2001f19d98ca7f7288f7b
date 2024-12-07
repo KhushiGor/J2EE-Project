@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add-Employee</title>
+</head>
+<body>
+<form action="addEmployee">
+<div class="form-container">
+        <h2>Add New Employee</h2>
+        <form action="AddEmployee" id="addEmployeeForm">
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            <input type="text" id="position" name="position" placeholder="Enter Position" required>
+            <button type="submit">Add Employee</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+</body>
+</html>

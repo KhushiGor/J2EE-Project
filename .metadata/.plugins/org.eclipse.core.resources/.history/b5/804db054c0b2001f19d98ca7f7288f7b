@@ -1,0 +1,61 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class AddEmployeeServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public AddEmployeeServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/view/add-employee.jsp").forward(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Retrieve updated customer information from the form
+        String customerId = request.getParameter("customerId");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+
+        // Read all customers from the file and update the specified one
+        List<String> customers = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/Users/apurv/eclipse-workspace-j2ee/Assignment_1/src/main/webapp/customers/customers.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] customerInfo = line.split(", ");
+                if (customerInfo[0].split(": ")[1].equals(customerId)) {
+                    // Update the customer information
+                    line = "ID: " + customerId + ", Username: " + username + ", Email: " + email + ", Phone: " + phone + ", Address: " + address;
+                }
+                customers.add(line);  // Add customer to the list
+            }
+        }
+
+        // Write the updated customer list back to the file
+        try (FileWriter writer = new FileWriter("C:/Users/apurv/eclipse-workspace-j2ee/Assignment_1/src/main/webapp/customers/customers.txt")) {
+            for (String customer : customers) {
+                writer.write(customer + "\n");
+            }
+        }
+		
+		request.getRequestDispatcher("/view/success.jsp").forward(request, response);
+	}
+
+}

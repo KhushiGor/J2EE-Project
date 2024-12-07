@@ -1,0 +1,45 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class AddEmployeeServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public AddEmployeeServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/view/add-employee.jsp").forward(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Retrieve updated customer information from the form
+        String id = request.getParameter("employee_Id");
+        String name = request.getParameter("employee_Name");
+        String email = request.getParameter("employeeEmail");
+        
+        request.setAttribute("employeeId", id);
+        request.setAttribute("employeeName", name);
+        request.setAttribute("employeeEmail", email);
+       
+        request.getRequestDispatcher("/view/add-success.jsp").forward(request, response);
+	}
+
+}

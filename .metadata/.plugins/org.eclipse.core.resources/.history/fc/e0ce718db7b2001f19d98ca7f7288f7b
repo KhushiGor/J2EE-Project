@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>update-Employee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css"></style>
+</head>
+<body>
+   
+</head>
+<body>
+    <div class="form-container">
+        <h2>Update Employee</h2>
+        <form id="updateEmployee">
+            <input type="number" id="updateId" name="id" placeholder="Enter Employee ID" required>
+            <input type="text" id="updateName" name="name" placeholder="Enter Name" required>
+            <input type="email" id="updateEmail" name="email" placeholder="Enter Email" required>
+            <input type="text" id="updatePosition" name="position" placeholder="Enter Position" required>
+            <button type="submit">Update Employee</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script src="updateEmployee.js"></script>
+</body>
+</html>
+</body>
+</html>

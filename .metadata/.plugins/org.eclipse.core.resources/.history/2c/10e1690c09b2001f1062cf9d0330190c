@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+  <servlet>
+    <description></description>
+    <display-name>AddEmployeeSevlet</display-name>
+    <servlet-name>AddEmployeeSevlet</servlet-name>
+    <servlet-class>controller.AddEmployeeSevlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmployeeSevlet</servlet-name>
+    <url-pattern>/AddEmployeeSevlet</url-pattern>
+  </servlet-mapping>
+</web-app>

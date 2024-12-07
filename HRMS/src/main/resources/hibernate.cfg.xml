@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "C:\ESDV\Sem_1\J2EE\J2EE-Project\HRMS\src\main\resources\dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- Session Factory configuration -->
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hrms</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Admin@1234</property>
+
+        <!-- JDBC connection pool settings (optional) -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+        <!-- Hibernate Dialect (MySQL in this case) -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Show SQL queries in the console -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Hibernate auto schema update (can use 'update', 'validate', 'create', or 'create-drop') -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mention the mapped annotated class -->
+        <mapping class="model.Employee"/>
+    </session-factory>
+</hibernate-configuration>

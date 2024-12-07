@@ -1,0 +1,45 @@
+package controller;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Servlet implementation class AddEmployeeSevlet
+ */
+public class AddEmployeeSevlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	@Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String position = request.getParameter("position");
+ 
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = "INSERT INTO employees (name, email, position) VALUES (?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, position);
+            ps.executeUpdate();
+            response.sendRedirect("success.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
+    }
+ 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.getWriter().println("<h1>GET method is not supported for this operation.</h1>");
+    }
+}

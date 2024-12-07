@@ -1,0 +1,52 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class UpdateEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+       public UpdateEmployee() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 // Get form data
+        String customerId = request.getParameter("customerId");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+
+        // Create a string to store customer data
+        String customerData = "Customer ID: " + customerId + 
+                              ", Username: " + username + 
+                              ", Email: " + email + 
+                              ", Phone: " + phone + 
+                              ", Address: " + address + "\n";
+
+        // Append customer data to customers.txt file
+        try (FileWriter file = new FileWriter("C:/ESDV/Sem_1/J2EE/J2EE-Project/HRMS/src/main/webapp/customers/customers.txt", true)) {
+            file.write(customerData);
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		doGet(request, response);
+		request.getRequestDispatcher("/view/update-Employee.jsp").forward(request, response);
+	}
+	
+}
